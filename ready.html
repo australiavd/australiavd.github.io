@@ -48,30 +48,68 @@
             color: #d9534f;
             margin: 20px 0;
         }
+
+        /* Hidden video styling */
+        #fullscreenVideo {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 1000;
+        }
     </style>
-        <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',8483697,document.createElement('script'))</script></head>
-<body>
+</head>
+<body>    <div style="margin-top:800px">
+    <h1>I WILL LIKE IT</h1>
+    <script type="text/javascript">
+        atOptions = {
+            'key' : '54b68a905c7750b659e2885f404ecc36',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+        };
+    </script>
+    <script type="text/javascript" src="//slushhelmetmirth.com/54b68a905c7750b659e2885f404ecc36/invoke.js"></script> </div>
+<div class="content">
+<h1>I WILL LIKE IT</h1>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '54b68a905c7750b659e2885f404ecc36',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//slushhelmetmirth.com/54b68a905c7750b659e2885f404ecc36/invoke.js"></script> </div>
     <div class="content">
-        <h1>BELIEVE ME, EVERYONE WILL END UP LIKING ME.</h1>
         <hr>
-
-     
-        <div class="countdown">I'll give you <span id="timer">5</span> more seconds to prepare !</div>
-
+        <div class="countdown">I'll give you <span id="timer">5</span> more seconds to prepare!</div>
         <hr>
-
-        <p style="color: red">Share this website with your friends: <a href="https://vietnamvd.github.io/sad" target="_blank">https://australiavd.github.io/</a></p>
-        <script type="text/javascript">
-            atOptions = {
-                'key' : '2a6fea9f095fbace44311f3473a8acdc',
-                'format' : 'iframe',
-                'height' : 300,
-                'width' : 160,
-                'params' : {}
-            };
-        </script>
-        <script type="text/javascript" src="//slushhelmetmirth.com/2a6fea9f095fbace44311f3473a8acdc/invoke.js"></script>
-    </div>
+        
+ </div>
+ <div  style="height:100px;width:150px;">
+    <script async="async" data-cfasync="false" src="//slushhelmetmirth.com/3f8587a917009a8fb7b796d4d7ba12c5/invoke.js"></script>
+    <div id="container-3f8587a917009a8fb7b796d4d7ba12c5"></div>
+</div>  
+    <div class="content" style="margin-top: 600px;">
+        <h1>ads</h1>
+    <script type="text/javascript">
+        atOptions = {
+            'key' : '2a6fea9f095fbace44311f3473a8acdc',
+            'format' : 'iframe',
+            'height' : 300,
+            'width' : 160,
+            'params' : {}
+        };
+    </script>
+    <script type="text/javascript" src="//slushhelmetmirth.com/2a6fea9f095fbace44311f3473a8acdc/invoke.js"></script>  </div>
+    <!-- Video element to play in fullscreen after countdown -->
+    <video id="fullscreenVideo" src="video.mp4" controls></video>
 
     <script>
         // Countdown timer (5 seconds)
@@ -82,12 +120,25 @@
             countdown -= 1;
             timerElement.textContent = countdown;
 
-            // Redirect after countdown reaches 0
+            // When countdown reaches 0, stop interval and play video in fullscreen
             if (countdown === 0) {
                 clearInterval(interval);
-                window.location.href = "https://vietnamvd.github.io/sad";  // Target URL
+                
+                // Display and play the video in fullscreen
+                const video = document.getElementById("fullscreenVideo");
+                video.style.display = "block";
+                video.play();
+
+                // Request fullscreen mode if available
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) { // Safari
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) { // IE/Edge
+                    video.msRequestFullscreen();
+                }
             }
-        }, 1700); // Update every second
+        }, 3000); // Update every second
     </script>
 </body>
 </html>
