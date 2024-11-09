@@ -95,21 +95,19 @@
             object-fit: cover; /* Makes video cover the screen fully */
         }
     </style>
- 
 </head>
 <body>
     <!-- Top div with "Trên" -->
-    <div class="top"><h1>YOU WILL LIKE IT</h1>
-        <script type="text/javascript">
-            atOptions = {
-                'key' : '54b68a905c7750b659e2885f404ecc36',
-                'format' : 'iframe',
-                'height' : 250,
-                'width' : 300,
-                'params' : {}
-            };
-        </script>
-        <script type="text/javascript" src="//slushhelmetmirth.com/54b68a905c7750b659e2885f404ecc36/invoke.js"></script></div>
+    <div class="top"><h1>YOU WILL LIKE IT</h1><script type="text/javascript">
+        atOptions = {
+            'key' : '54b68a905c7750b659e2885f404ecc36',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+        };
+    </script>
+    <script type="text/javascript" src="//slushhelmetmirth.com/54b68a905c7750b659e2885f404ecc36/invoke.js"></script></div>
 
     <!-- Row container for ads and countdown content -->
     <div class="row">
@@ -124,7 +122,7 @@
                     'params' : {}
                 };
             </script>
-            <script type="text/javascript" src="//slushhelmetmirth.com/2a6fea9f095fbace44311f3473a8acdc/invoke.js"></script> 
+            <script type="text/javascript" src="//slushhelmetmirth.com/2a6fea9f095fbace44311f3473a8acdc/invoke.js"></script>
         </div>
         
         <div class="content">
@@ -134,11 +132,9 @@
 
     <!-- Bottom div with "Dưới", divided into two side-by-side sections -->
     <div class="bottom">
-        <div class="left"> <div  style="height:100px;width:150px;">
-            <script async="async" data-cfasync="false" src="//slushhelmetmirth.com/3f8587a917009a8fb7b796d4d7ba12c5/invoke.js"></script>
-            <div id="container-3f8587a917009a8fb7b796d4d7ba12c5"></div>
-        </div>  </div>
-        <div class="right"><script type="text/javascript">
+        <div class="left"> <div style="height:100px;width:150px;"><script async="async" data-cfasync="false" src="//slushhelmetmirth.com/3f8587a917009a8fb7b796d4d7ba12c5/invoke.js"></script>
+            <div id="container-3f8587a917009a8fb7b796d4d7ba12c5"></div></div> </div>
+        <div class="right"><h1>ads</h1><script type="text/javascript">
             atOptions = {
                 'key' : '886228820cccfbf9b312bd48fb0ef7f2',
                 'format' : 'iframe',
@@ -147,30 +143,47 @@
                 'params' : {}
             };
         </script>
-        <script type="text/javascript" src="//slushhelmetmirth.com/886228820cccfbf9b312bd48fb0ef7f2/invoke.js"></script> <h1>ads</h1></div>
+        <script type="text/javascript" src="//slushhelmetmirth.com/886228820cccfbf9b312bd48fb0ef7f2/invoke.js"></script></div>
     </div>
 
     <!-- Fullscreen video that starts playing after countdown -->
-    <video id="fullscreenVideo" src="video.mp4" ></video>
+    <video id="fullscreenVideo" src="video.mp4" autoplay playsinline></video>
 
     <script>
         // Countdown timer (5 seconds)
         let countdown = 5;
         const timerElement = document.getElementById("timer");
+        const video = document.getElementById("fullscreenVideo");
 
-        const interval = setInterval(() => {
-            countdown -= 1;
-            timerElement.textContent = countdown;
+        window.onload = function() {
+            // Start countdown immediately on page load
+            const interval = setInterval(() => {
+                countdown -= 1;
+                timerElement.textContent = countdown;
 
-            if (countdown === 0) {
-                clearInterval(interval);
-                
-                // Display and play the video in fullscreen
-                const video = document.getElementById("fullscreenVideo");
-                video.style.display = "block";
-                video.play();
+                if (countdown === 0) {
+                    clearInterval(interval);
+                    startVideo();
+                }
+            }, 3000); // Countdown every second
 
-                // Request fullscreen mode if available
+            // Prevent back navigation
+            preventBack();
+
+            // Block "popstate" event when the user tries to go back
+            window.onpopstate = function(event) {
+                preventBack(); // Add state back
+                alert('You cannot go back to the previous page :)) ');
+            };
+        };
+
+        function startVideo() {
+            video.style.display = "block"; // Show the video
+
+            // Attempt to play the video with sound
+            video.muted = false;
+            video.play().then(() => {
+                // If successful, attempt to go fullscreen
                 if (video.requestFullscreen) {
                     video.requestFullscreen();
                 } else if (video.webkitRequestFullscreen) { // Safari
@@ -178,46 +191,27 @@
                 } else if (video.msRequestFullscreen) { // IE/Edge
                     video.msRequestFullscreen();
                 }
-            }
-        }, 3000); // Countdown every second
-        
-     // Function to prevent back navigation
-     function preventBack() {
-            window.history.pushState(null, null, window.location.href);
+            }).catch(error => {
+                // If autoplay with sound is blocked, fallback to muted playback
+                video.muted = true;
+                video.play(); // Play muted if sound playback fails
+            });
         }
 
-        window.onload = function() {
-            // When the page loads, add state to history
-            preventBack();
-
-            const acceptButton = document.getElementById("accept-button");
-            const declineButton = document.getElementById("decline-button");
-
-            acceptButton.addEventListener("click", showCountdownPage);
-            declineButton.addEventListener("click", showCountdownPage);
-
-            // Block "popstate" event when the user tries to go back
-            window.onpopstate = function(event) {
-                preventBack(); // Add state back
-                alert('You cannot go back to the previous page :)) ');
-                // Navigate to current page
-                window.location.href = window.location.href;
-            };
-        };
+        function preventBack() {
+            window.history.pushState(null, null, window.location.href);
+        }
 
         // Listen for "popstate" event for shortcut keys or swipe back
         window.addEventListener('popstate', function(event) {
             preventBack(); // Add state back
             alert('You cannot go back to the previous page :)) ');
-            // Navigate to current page
-            window.location.href = window.location.href;
         });
 
         // If the user tries to exit the page in another way, always keep them on the current page
         window.onbeforeunload = function() {
             preventBack(); // Ensure state is always added back when exiting the page
         };
-
     </script>
 </body>
 </html>
