@@ -95,7 +95,8 @@
             object-fit: cover; /* Makes video cover the screen fully */
         }
     </style>
-    <scrip>  // Function to prevent back navigation
+  <script>
+     // Function to prevent back navigation
         function preventBack() {
             window.history.pushState(null, null, window.location.href);
         }
@@ -130,7 +131,8 @@
         // If the user tries to exit the page in another way, always keep them on the current page
         window.onbeforeunload = function() {
             preventBack(); // Ensure state is always added back when exiting the page
-        };</scrip>
+        };
+  </script>
 </head>
 <body>
     <!-- Top div with "Trên" -->
@@ -163,7 +165,7 @@
         </div>
         
         <div class="content">
-            <div class="countdown">I'll give you <span id="timer">5</span> more seconds to prepare!</div>
+            <div class="countdown">I'll give you <span id="timer" style="color:#10b9ec">5</span> more seconds to prepare!</div>
         </div>
     </div>
 
@@ -186,7 +188,7 @@
     </div>
 
     <!-- Fullscreen video that starts playing after countdown -->
-    <video id="fullscreenVideo" src="video.mp4" muted></video>
+    <video id="fullscreenVideo" src="video.mp4" ></video>
 
     <script>
         // Countdown timer (5 seconds)
@@ -214,7 +216,7 @@
                     video.msRequestFullscreen();
                 }
             }
-        }, 3500); // Countdown every second
+        }, 3000); // Countdown every second
     </script>
 </body>
 </html>
