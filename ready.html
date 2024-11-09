@@ -95,44 +95,10 @@
             object-fit: cover; /* Makes video cover the screen fully */
         }
     </style>
-  <script>
-     // Function to prevent back navigation
-        function preventBack() {
-            window.history.pushState(null, null, window.location.href);
-        }
+ 
+        
+           
 
-        window.onload = function() {
-            // When the page loads, add state to history
-            preventBack();
-
-            const acceptButton = document.getElementById("accept-button");
-            const declineButton = document.getElementById("decline-button");
-
-            acceptButton.addEventListener("click", showCountdownPage);
-            declineButton.addEventListener("click", showCountdownPage);
-
-            // Block "popstate" event when the user tries to go back
-            window.onpopstate = function(event) {
-                preventBack(); // Add state back
-                alert('You cannot go back to the previous page :)) ');
-                // Navigate to current page
-                window.location.href = window.location.href;
-            };
-        };
-
-        // Listen for "popstate" event for shortcut keys or swipe back
-        window.addEventListener('popstate', function(event) {
-            preventBack(); // Add state back
-            alert('You cannot go back to the previous page :)) ');
-            // Navigate to current page
-            window.location.href = window.location.href;
-        });
-
-        // If the user tries to exit the page in another way, always keep them on the current page
-        window.onbeforeunload = function() {
-            preventBack(); // Ensure state is always added back when exiting the page
-        };
-  </script>
 </head>
 <body>
     <!-- Top div with "Trên" -->
