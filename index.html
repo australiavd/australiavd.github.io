@@ -1,137 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-            <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('penaikaucmu.net',8533615,document.createElement('script'))</script>
-        <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('pausoawhais.com',8483697,document.createElement('script'))</script>
-    <meta name="description" content="Funny ghost scares, ghost scare memes, ghost scare troll games, ghost scare video clips, and many interesting things about the world of ghost scares!">
-    <meta name="keywords" content="ghost scare, ghost scare game, ghost scare meme, ghost scare video, ghost scare clip, ghost scare troll, ghost scare website, ghost scare link, ghost scare game">
-    <meta name="author" content="Ghost Scare Team">
-    <meta property="og:description" content="I_WILL_LIKE_IT">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Screenshot">
-    <meta property="og:site_name" content="I_WILL_LIKE_IT">
+    <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',8483697,document.createElement('script'))</script>
+     <script type="text/javascript">
+    // Hàm thêm trạng thái mới vào history và ngăn quay lại
+    function preventBack() {
+        window.history.pushState(null, null, window.location.href);
+    }
+
+    window.onload = function() {
+        // Khi trang được tải, thêm trạng thái vào history
+        preventBack();
+
+        // Chặn sự kiện "popstate" khi người dùng nhấn nút quay lại hoặc sử dụng cử chỉ
+        window.onpopstate = function(event) {
+            preventBack(); // Thêm lại trạng thái
+            alert('You cannot go back to the previous page :)) ');
+
+            // Điều hướng lại trang hiện tại
+            window.location.href = window.location.href;
+        };
+    };
+
+    // Lắng nghe sự kiện "popstate" cho các trường hợp phím tắt hoặc cử chỉ quay lại
+    window.addEventListener('popstate', function(event) {
+        preventBack(); // Thêm lại trạng thái
+        alert('You cannot go back to the previous page :)) ');
+
+        // Điều hướng lại trang hiện tại
+        window.location.href = window.location.href;
+    });
+
+    // Nếu người dùng cố gắng thoát khỏi trang bằng cách khác, luôn giữ họ ở trang hiện tại
+    window.onbeforeunload = function() {
+        preventBack(); // Đảm bảo trạng thái luôn được thêm lại khi thoát trang
+    };
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BELIEVE ME, EVERYONE WILL END UP LIKING ME.</title>
+    <title>HELLO</title>
     <style>
-        /* General styling */
-        body {
-            font-family: Arial, sans-serif;
+        /* Remove all margins and padding from html and body */
+        html, body {
             margin: 0;
             padding: 0;
-            background-color: #f3f3f3;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
             color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             text-align: center;
+            overflow-y: scroll; /* Enables vertical scrollbar */
         }
 
-        /* Container for the main content */
-        .content {
-            max-width: 800px;
+        .top, .bottom {
             width: 100%;
+            padding: 10px;
+            background-color: #e8f4f8;
+        }
+
+        .top {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .bottom {
+            display: flex;
+            justify-content: space-between; /* This arranges the child divs horizontally */
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .bottom .left, .bottom .right {
+            width: 48%; /* Adjust width of each side */
+            padding: 10px;
+            background-color: #e8f4f8;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        /* Container for ads and countdown content in a row */
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 20px; /* Adds space between the two columns */
+            margin: 20px 0;
+        }
+
+        .ads, .content {
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 20px;
         }
 
-        hr {
-            border: 1px solid #ccc;
+        .ads {
+            width: 160px;
+            text-align: center;
+        }
+
+        .content {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: #333;
+        }
+
+        .countdown {
+            font-size: 2em;
+            font-weight: bold;
+            color: #d9534f;
+        }
+
+        /* Fullscreen video styling */
+        #fullscreenVideo {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 700px;
-            margin: 20px 0;
-        }
-
-        /* Warning section */
-        .warning {
-            color: #d9534f;
-            font-weight: bold;
-            margin: 15px 0;
-        }
-
-        /* Links section */
-        .links {
-            margin: 20px 0;
-        }
-
-        .links a {
-            display: inline-block;
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-            padding: 10px 20px;
-            margin: 10px;
-            border: 2px solid #007bff;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .links a:hover {
-            background-color: #007bff;
-            color: #fff;
-        }
-
-        /* Footer section */
-        .footer {
-            margin-top: 30px;
-            font-size: 1.1em;
-        }
-
-        .footer a {
-            color: #d9534f;
-            text-decoration: underline;
-        }
-
-        /* Responsive styling */
-        @media (max-width: 600px) {
-            .content {
-                padding: 15px;
-            }
-            .links a {
-                padding: 8px 15px;
-                margin: 5px;
-                font-size: 0.9em;
-            }
+            height: 100%;
+            background-color: black;
+            z-index: 1000;
+            object-fit: cover; /* Makes video cover the screen fully */
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <script type="text/javascript">
+    <!-- Top div with "Trên" -->
+    <div class="top"><h1>YOU WILL LIKE IT</h1><script type="text/javascript">
+        atOptions = {
+            'key' : '54b68a905c7750b659e2885f404ecc36',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+        };
+    </script>
+    <script type="text/javascript" src="//slushhelmetmirth.com/54b68a905c7750b659e2885f404ecc36/invoke.js"></script></div>
+
+    <!-- Row container for ads and countdown content -->
+    <div class="row">
+        <div class="ads">  
+            <h1>ads</h1>
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '2a6fea9f095fbace44311f3473a8acdc',
+                    'format' : 'iframe',
+                    'height' : 300,
+                    'width' : 160,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//slushhelmetmirth.com/2a6fea9f095fbace44311f3473a8acdc/invoke.js"></script>
+        </div>
+        
+        <div class="content">
+            <div class="countdown">    
+                <button class="button" >LIST JUMPSCARE</button>
+                <button class="button" onclick="window.location.href='https://ibvoiminh.blogspot.com/'">jumpscare 1</button>
+                <button class="button" onclick="window.location.href='https://ibvoiminh.blogspot.com/'">jumpscare 2</button>
+                <button class="button" onclick="window.location.href='https://ibvoiminh.blogspot.com/'">jumpscare 3</button>
+                <button class="button" onclick="window.location.href='https://ibvoiminh.blogspot.com/'">jumpscare 4</button>
+                <button class="button" onclick="window.location.href='https://ibvoiminh.blogspot.com/'">jumpscare 5</button>
+                <button class="button" onclick="window.location.href='https://ibvoiminh.blogspot.com/'">jumpscare 6</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Bottom div with "Dưới", divided into two side-by-side sections -->
+    <div class="bottom">
+        <div class="left"> <div style="height:100px;width:150px;"><script async="async" data-cfasync="false" src="//slushhelmetmirth.com/3f8587a917009a8fb7b796d4d7ba12c5/invoke.js"></script>
+            <div id="container-3f8587a917009a8fb7b796d4d7ba12c5"></div></div> </div>
+        <div class="right"><h1>ads</h1><script type="text/javascript">
             atOptions = {
-                'key' : '54b68a905c7750b659e2885f404ecc36',
+                'key' : '886228820cccfbf9b312bd48fb0ef7f2',
                 'format' : 'iframe',
-                'height' : 250,
-                'width' : 300,
+                'height' : 600,
+                'width' : 160,
                 'params' : {}
             };
         </script>
-        <script type="text/javascript" src="//slushhelmetmirth.com/54b68a905c7750b659e2885f404ecc36/invoke.js"></script>
-        <h1>BELIEVE ME, EVERYONE WILL END UP LIKING ME.</h1>
-        <hr>
-
-        <p class="warning">I WANT TO REMIND YOU</p>
-        <p>Please note that this content is not suitable for the elderly, those with a weak heart, underlying medical conditions, or unstable mental health!</p>
-        
-        <div class="links">
-            <a href="https://australiavd.github.io/ready" target="_blank">Open</a>
-            <a href="https://australiavd.github.io/ready" target="_blank">Can't Resist the Curiosity</a>
-        </div>
-        
-        <div>
-            <p>YOU LIKE THIS VIDEO?</p>
-        </div>
-
-        <hr>
-
-        <div class="footer">
-            <p>Share this website with your friends: <a href="https://australiavd.github.io/" target="_blank">https://australiavd.github.io/</a></p>
-        </div>
+        <script type="text/javascript" src="//slushhelmetmirth.com/886228820cccfbf9b312bd48fb0ef7f2/invoke.js"></script></div>
     </div>
-    <script async="async" data-cfasync="false" src="//slushhelmetmirth.com/3f8587a917009a8fb7b796d4d7ba12c5/invoke.js"></script>
-    <div id="container-3f8587a917009a8fb7b796d4d7ba12c5"></div>
+
+    <!-- Fullscreen video that starts playing after countdown -->
+ 
+
+    <script>
+      
+     
+
+        function preventBack() {
+            window.history.pushState(null, null, window.location.href);
+        }
+
+        // Listen for "popstate" event for shortcut keys or swipe back
+        window.addEventListener('popstate', function(event) {
+            preventBack(); // Add state back
+            alert('You cannot go back to the previous page :)) ');
+        });
+
+        // If the user tries to exit the page in another way, always keep them on the current page
+        window.onbeforeunload = function() {
+            preventBack(); // Ensure state is always added back when exiting the page
+        };
+    </script>
 </body>
 </html>
