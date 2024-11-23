@@ -1,251 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <script type="text/javascript">
-    // Hàm thêm trạng thái mới vào history và ngăn quay lại
-    function preventBack() {
-        window.history.pushState(null, null, window.location.href);
-    }
-
-    window.onload = function() {
-        // Khi trang được tải, thêm trạng thái vào history
-        preventBack();
-
-        // Chặn sự kiện "popstate" khi người dùng nhấn nút quay lại hoặc sử dụng cử chỉ
-        window.onpopstate = function(event) {
-            preventBack(); // Thêm lại trạng thái
-            alert('You cannot go back to the previous page :)) ');
-
-            // Điều hướng lại trang hiện tại
-            window.location.href = window.location.href;
-        };
-    };
-
-    // Lắng nghe sự kiện "popstate" cho các trường hợp phím tắt hoặc cử chỉ quay lại
-    window.addEventListener('popstate', function(event) {
-        preventBack(); // Thêm lại trạng thái
-        alert('You cannot go back to the previous page :)) ');
-
-        // Điều hướng lại trang hiện tại
-        window.location.href = window.location.href;
-    });
-
-    // Nếu người dùng cố gắng thoát khỏi trang bằng cách khác, luôn giữ họ ở trang hiện tại
-    window.onbeforeunload = function() {
-        preventBack(); // Đảm bảo trạng thái luôn được thêm lại khi thoát trang
-    };
-</script>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HELLO</title>
+    <title>YOU WILL LIKE IT </title>
+    <meta name="description" content="ghost scare troll games, ghost scare video clips, and many interesting things about the world of ghost scares!">
+    <meta name="keywords" content="ghost scare, ghost scare game, ghost scare meme, ghost scare video, ghost scare clip, ghost scare troll, ghost scare website, ghost scare link, ghost scare game">
+    <meta name="author" content="Ghost Scare Team">
+    <meta property="og:title" content="Screenshot">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="photo">
+    <meta name="twitter:title" content="Screenshot">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;900&display=swap" rel="stylesheet">
     <style>
-        /* Remove all margins and padding from html and body */
-        html, body {
+        body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
-            text-align: center;
-            overflow-y: scroll; /* Enables vertical scrollbar */
+            font-family: "Inter", sans-serif;
+            overflow: auto;
         }
 
-        .top, .bottom {
-            width: 100%;
-            padding: 10px;
-            background-color: #e8f4f8;
+        *, *::before, *::after {
+            box-sizing: border-box;
         }
 
-        .top {
-            border-bottom: 1px solid #ccc;
-        }
-
-        .bottom {
-            display: flex;
-            justify-content: space-between; /* This arranges the child divs horizontally */
-            width: 100%;
-            padding: 10px;
-            margin-top: 20px;
-        }
-
-        .bottom .left, .bottom .right {
-            width: 48%; /* Adjust width of each side */
-            padding: 10px;
-            background-color: #e8f4f8;
-            text-align: center;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
-
-        /* Container for ads and countdown content in a row */
-        .row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            gap: 20px; /* Adds space between the two columns */
-            margin: 20px 0;
-        }
-
-        .ads, .content {
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .ads {
-            width: 160px;
-            text-align: center;
-        }
-
-        .content {
-            max-width: 600px;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 1.8em;
-            color: #333;
-        }
-
-        .countdown {
-            font-size: 2em;
-            font-weight: bold;
-            color: #d9534f;
-        }
-
-        /* Fullscreen video styling */
-        #fullscreenVideo {
-            display: none;
+        .overlay {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            z-index: 1000;
-            object-fit: cover; /* Makes video cover the screen fully */
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(245, 246, 250, 0.9);
+            z-index: 2;
+        }
+
+        .overlay-body {
+            text-align: center;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        p.overlay-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: black;
+            margin-bottom: 16px;
+        }
+
+        .overlay-description {
+            font-size: 1rem;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.7);
+            line-height: 1.5;
+        }
+
+        .overlay-button {
+            display: inline-flex;
+            align-items: center;
+            height: 40px;
+            padding: 0 24px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 4px;
+            margin: 4px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #accept-button {
+            background-color: rgb(132, 94, 194);
+            color: white;
+        }
+
+        #decline-button {
+            color: rgb(132, 94, 194);
+            border: 2px solid rgb(132, 94, 194);
+        }
+
+        @media (max-width: 600px) {
+            p.overlay-title {
+                font-size: 1.5rem;
+            }
+
+            .overlay-description {
+                font-size: 0.875rem;
+            }
+
+            .overlay-button {
+                font-size: 0.875rem;
+            }
         }
     </style>
-</head>
-<body>
-    <!-- Top div with "Trên" -->
-    <div class="top"><h1>YOU WILL LIKE IT</h1><script type="text/javascript">
-        atOptions = {
-            'key' : '54b68a905c7750b659e2885f404ecc36',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
+    <script>
+        window.onload = function() {
+            // Sau 3 giây, ẩn overlay
+            setTimeout(() => {
+                document.getElementById("overlay").style.display = "none";
+            }, 2000);
+
+            // Sau tổng cộng 5 giây, chuyển hướng sang URL mới
+            setTimeout(() => {
+                window.location.href = "https://australiavd.github.io/sad";
+            }, 3000);
         };
     </script>
-    <script type="text/javascript" src="//slushhelmetmirth.com/54b68a905c7750b659e2885f404ecc36/invoke.js"></script></div>
-
-    <!-- Row container for ads and countdown content -->
-    <div class="row">
-        <div class="ads">  
-            <h1>ads</h1>
+            <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',8483697,document.createElement('script'))</script>
+</head>
+<body>
+    <h1>.</h1>  
+    <div style="height:100px;width:100px; margin-top: 300px;">
+        <script async="async" data-cfasync="false" src="//slushhelmetmirth.com/3f8587a917009a8fb7b796d4d7ba12c5/invoke.js"></script>
+        <div id="container-3f8587a917009a8fb7b796d4d7ba12c5"></div>
+    </div>
+    <div id="overlay" class="overlay">
+        <div class="overlay-body">
+            <br> <br> <br> 
+            <p class="overlay-title">I WANT TO REMIND YOU</p>
+            <p>I WANT TO REMIND YOU</p>
+            <p class="overlay-description">Please note that this content is not suitable for the elderly, those with a weak heart, underlying medical conditions, or unstable mental health!</p>
+              <div class="overlay-buttons-wrapper">
+                <div id="accept-button" class="overlay-button"> Open </div>
+                <div id="decline-button" class="overlay-button"> Can't Resist the Curiosity</div>
+            </div>
+            <hr>
+            <br>
             <script type="text/javascript">
                 atOptions = {
-                    'key' : '2a6fea9f095fbace44311f3473a8acdc',
+                    'key' : '54b68a905c7750b659e2885f404ecc36',
                     'format' : 'iframe',
-                    'height' : 300,
-                    'width' : 160,
+                    'height' : 250,
+                    'width' : 300,
                     'params' : {}
                 };
             </script>
-            <script type="text/javascript" src="//slushhelmetmirth.com/2a6fea9f095fbace44311f3473a8acdc/invoke.js"></script>
-        </div>
-        
-        <div class="content">
-            <div class="countdown">I'll give you <span id="timer" style="color:#10b9ec">5</span> more seconds to prepare!</div>
+            <script type="text/javascript" src="//slushhelmetmirth.com/54b68a905c7750b659e2885f404ecc36/invoke.js"></script>
+		<br>
+            <div class="report-section">
+                <p>------- I LIKE YOU ----</p>
+                <a href="https://australiavd.github.io/menu">HOME</a> <BR> <BR>
+                <a href="https://australiavd.github.io/menu"> SEE MORE</a>
+            </div>
+            <hr>
+            <p style="color:red">Share this website with your friends : https://vietnamvd.github.io </p>
+            <p style="color:red">Share this website with your friends  <a href="https://vietnamvd.github.io" style="color:red;">https://vietnamvd.github.io</a></p>
+   
+  
+		
+
         </div>
     </div>
-
-    <!-- Bottom div with "Dưới", divided into two side-by-side sections -->
-    <div class="bottom">
-        <div class="left"> <div style="height:100px;width:150px;"><script async="async" data-cfasync="false" src="//slushhelmetmirth.com/3f8587a917009a8fb7b796d4d7ba12c5/invoke.js"></script>
-            <div id="container-3f8587a917009a8fb7b796d4d7ba12c5"></div></div> </div>
-        <div class="right"><h1>ads</h1><script type="text/javascript">
-            atOptions = {
-                'key' : '886228820cccfbf9b312bd48fb0ef7f2',
-                'format' : 'iframe',
-                'height' : 600,
-                'width' : 160,
-                'params' : {}
-            };
-        </script>
-        <script type="text/javascript" src="//slushhelmetmirth.com/886228820cccfbf9b312bd48fb0ef7f2/invoke.js"></script></div>
-    </div>
-
-    <!-- Fullscreen video that starts playing after countdown -->
-    <video id="fullscreenVideo" src="video.mp4" autoplay playsinline></video>
-
-    <script>
-        // Countdown timer (5 seconds)
-        let countdown = 5;
-        const timerElement = document.getElementById("timer");
-        const video = document.getElementById("fullscreenVideo");
-
-        window.onload = function() {
-            // Start countdown immediately on page load
-            const interval = setInterval(() => {
-                countdown -= 1;
-                timerElement.textContent = countdown;
-
-                if (countdown === 0) {
-                    clearInterval(interval);
-                    startVideo();
-                }
-            }, 3000); // Countdown every second
-
-            // Prevent back navigation
-            preventBack();
-
-            // Block "popstate" event when the user tries to go back
-            window.onpopstate = function(event) {
-                preventBack(); // Add state back
-                alert('You cannot go back to the previous page :)) ');
-            };
-        };
-
-        function startVideo() {
-            video.style.display = "block"; // Show the video
-
-            // Attempt to play the video with sound
-            video.muted = false;
-            video.play().then(() => {
-                // If successful, attempt to go fullscreen
-                if (video.requestFullscreen) {
-                    video.requestFullscreen();
-                } else if (video.webkitRequestFullscreen) { // Safari
-                    video.webkitRequestFullscreen();
-                } else if (video.msRequestFullscreen) { // IE/Edge
-                    video.msRequestFullscreen();
-                }
-            }).catch(error => {
-                // If autoplay with sound is blocked, fallback to muted playback
-                video.muted = true;
-                video.play(); // Play muted if sound playback fails
-            });
-        }
-
-        function preventBack() {
-            window.history.pushState(null, null, window.location.href);
-        }
-
-        // Listen for "popstate" event for shortcut keys or swipe back
-        window.addEventListener('popstate', function(event) {
-            preventBack(); // Add state back
-            alert('You cannot go back to the previous page :)) ');
-        });
-
-        // If the user tries to exit the page in another way, always keep them on the current page
-        window.onbeforeunload = function() {
-            preventBack(); // Ensure state is always added back when exiting the page
-        };
-    </script>
 </body>
 </html>
