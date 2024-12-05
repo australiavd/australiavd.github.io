@@ -95,6 +95,12 @@
                 font-size: 0.875rem;
             }
         }
+        .tab {
+            display: none;
+        }
+        .tab.active {
+            display: block;
+        }
     </style>
     <script>
         window.onload = function() {
@@ -109,59 +115,102 @@
             }, 3000);
         };
     </script>
-            <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',8483697,document.createElement('script'))</script>
+
+    
+
+    <!-- JavaScript to handle country detection and tab switching -->
+    <script>
+        async function fetchUserIP() {
+            try {
+                const response = await fetch('https://get.geojs.io/v1/ip/country.json'); // Reliable IP API
+                if (!response.ok) throw new Error('Failed to fetch IP data');
+
+                const data = await response.json();
+                const country = data.country;
+
+                if (country === 'VN') { // Vietnam
+                    activateTab('tab2'); // Activate Tab 2
+                } else {
+                    activateTab('tab1'); // Activate Tab 1 for other countries
+                }
+            } catch (error) {
+                console.error('Error fetching IP data:', error);
+                activateTab('tab1'); // Default to Tab 1 if API fails
+            }
+        }
+
+        function activateTab(tabId) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            const activeTab = document.getElementById(tabId);
+            if (activeTab) activeTab.classList.add('active');
+        }
+
+        // Fetch IP on page load
+        document.addEventListener('DOMContentLoaded', fetchUserIP);
+    </script>
 </head>
 <body>
-  <h1>I will terrify you</h1>
-    <div style="display: flex; align-items: center; ">
-        
-        <div>      <h1 style="color:red">I WILL TERRIFY YOU </h1>     <h1 style="color:red">I WILL TERRIFY YOU </h1>     <h1 style="color:red">I WILL TERRIFY YOU </h1>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '2a6fea9f095fbace44311f3473a8acdc',
-		'format' : 'iframe',
-		'height' : 300,
-		'width' : 160,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//slushhelmetmirth.com/2a6fea9f095fbace44311f3473a8acdc/invoke.js"></script>
-            <h1 style="color:red">I WILL TERRIFY YOU </h1>
+    <!-- Tab 1: Default content -->
+    <div id="tab1" class="tab">
+        <h1>I will terrify you</h1>
+        <div style="display: flex; align-items: center; ">
+            
+            <div>      <h1 style="color:red">I WILL TERRIFY YOU </h1>     <h1 style="color:red">I WILL TERRIFY YOU </h1>     <h1 style="color:red">I WILL TERRIFY YOU </h1>
+    <script type="text/javascript">
+        atOptions = {
+            'key' : '2a6fea9f095fbace44311f3473a8acdc',
+            'format' : 'iframe',
+            'height' : 300,
+            'width' : 160,
+            'params' : {}
+        };
+    </script>
+    <script type="text/javascript" src="//slushhelmetmirth.com/2a6fea9f095fbace44311f3473a8acdc/invoke.js"></script>
+                <h1 style="color:red">I WILL TERRIFY YOU </h1>
+            </div>
+        </div>
+        <div id="overlay" class="overlay">
+            <div class="overlay-body">
+                <br> <br> <br> 
+                <h1 style="color:red">I WILL TERRIFY YOU </h1>
+                <h1 style="color:red">I WILL TERRIFY YOU </h1>
+                <p class="overlay-description">I WILL TERRIFY YOU - I WILL TERRIFY YOU - I WILL TERRIFY YOU - I WILL TERRIFY YOU - I WILL TERRIFY YOU - I WILL TERRIFY YOU</p>
+                  <div class="overlay-buttons-wrapper">
+                    <h1 style="color:red">I WILL TERRIFY YOU </h1> <script type="text/javascript">
+        atOptions = {
+            'key' : '886228820cccfbf9b312bd48fb0ef7f2',
+            'format' : 'iframe',
+            'height' : 600,
+            'width' : 160,
+            'params' : {}
+        };
+    </script>
+    <script type="text/javascript" src="//slushhelmetmirth.com/886228820cccfbf9b312bd48fb0ef7f2/invoke.js"></script>
+                </div>
+                <hr>
+                <br>
+    
+               
+            <br>
+                <div class="report-section">
+                    <h1 style="color:red">I WILL TERRIFY YOU </h1>
+                  
+                </div>
+                <hr>
+             
+      
+            
+    
+            </div>
         </div>
     </div>
-    <div id="overlay" class="overlay">
-        <div class="overlay-body">
-            <br> <br> <br> 
-            <h1 style="color:red">I WILL TERRIFY YOU </h1>
-            <h1 style="color:red">I WILL TERRIFY YOU </h1>
-            <p class="overlay-description">I WILL TERRIFY YOU - I WILL TERRIFY YOU - I WILL TERRIFY YOU - I WILL TERRIFY YOU - I WILL TERRIFY YOU - I WILL TERRIFY YOU</p>
-              <div class="overlay-buttons-wrapper">
-                <h1 style="color:red">I WILL TERRIFY YOU </h1> <script type="text/javascript">
-	atOptions = {
-		'key' : '886228820cccfbf9b312bd48fb0ef7f2',
-		'format' : 'iframe',
-		'height' : 600,
-		'width' : 160,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//slushhelmetmirth.com/886228820cccfbf9b312bd48fb0ef7f2/invoke.js"></script>
-            </div>
-            <hr>
-            <br>
 
-           
-		<br>
-            <div class="report-section">
-                <h1 style="color:red">I WILL TERRIFY YOU </h1>
-              
-            </div>
-            <hr>
-         
-  
-		
-
-        </div>
+    <!-- Tab 2: Vietnam-specific content -->
+    <div id="tab2" class="tab">
+        <h1>Xin lỗi VN</h1>
+        <p>Nội dung này không khả dụng tại Việt Nam.</p>
     </div>
 </body>
 </html>
