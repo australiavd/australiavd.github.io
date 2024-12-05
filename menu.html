@@ -1,55 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',8483697,document.createElement('script'))</script>
-     <script type="text/javascript">
-    // Hàm thêm trạng thái mới vào history và ngăn quay lại
-    function preventBack() {
-        window.history.pushState(null, null, window.location.href);
-    }
-
-    window.onload = function() {
-        // Khi trang được tải, thêm trạng thái vào history
-        preventBack();
-
-        // Chặn sự kiện "popstate" khi người dùng nhấn nút quay lại hoặc sử dụng cử chỉ
-        window.onpopstate = function(event) {
-            preventBack(); // Thêm lại trạng thái
-            alert('You cannot go back to the previous page :)) ');
-
-            // Điều hướng lại trang hiện tại
-            window.location.href = window.location.href;
-        };
-    };
-
-    // Lắng nghe sự kiện "popstate" cho các trường hợp phím tắt hoặc cử chỉ quay lại
-    window.addEventListener('popstate', function(event) {
-        preventBack(); // Thêm lại trạng thái
-        alert('You cannot go back to the previous page :)) ');
-
-        // Điều hướng lại trang hiện tại
-        window.location.href = window.location.href;
-    });
-
-    // Nếu người dùng cố gắng thoát khỏi trang bằng cách khác, luôn giữ họ ở trang hiện tại
-    window.onbeforeunload = function() {
-        preventBack(); // Đảm bảo trạng thái luôn được thêm lại khi thoát trang
-    };
-</script>
-   
-     <!-- Thẻ robots cho phép công cụ tìm kiếm lập chỉ mục trang này -->
-  <meta name="robots" content="index, follow">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I LIKE YOU  .</title>
+    <title>I LIKE YOU</title>
     <meta name="description" content="ghost scare troll games, ghost scare video clips, and many interesting things about the world of ghost scares!">
     <meta name="keywords" content="ghost scare, ghost scare game, ghost scare meme, ghost scare video, ghost scare clip, ghost scare troll, ghost scare website, ghost scare link, ghost scare game">
     <meta name="author" content="Ghost Scare Team">
-    <meta property="og:title" content="Screenshot">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="photo">
-    <meta name="twitter:title" content="Screenshot">
+    <meta name="robots" content="index, follow">
     <style>
+      <style>
         /* Remove all margins and padding from html and body */
         html, body {
             margin: 0;
@@ -140,9 +100,44 @@
             object-fit: cover; /* Makes video cover the screen fully */
         }
     </style>
+    </style>
+    <script>
+        // Function to fetch the user's country based on IP
+        async function fetchUserIP() {
+            try {
+                const response = await fetch('https://get.geojs.io/v1/ip/country.json');
+                if (!response.ok) throw new Error('Failed to fetch IP data');
+
+                const data = await response.json();
+                const country = data.country;
+
+                // Restrict access and activate content based on country
+                if (country === 'VN') { // Vietnam
+                    document.getElementById('restrictedContent').style.display = 'block';
+                    document.getElementById('mainContent').style.display = 'none';
+                } else {
+                    document.getElementById('restrictedContent').style.display = 'none';
+                    document.getElementById('mainContent').style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error fetching IP data:', error);
+            }
+        }
+
+        // Run the IP fetch on page load
+        window.onload = function() {
+            fetchUserIP();
+        };
+    </script>
 </head>
 <body>
-    <!-- Top div with "Trên" -->
+    <div class="top">
+        <h1>YOU WILL LIKE IT</h1>
+    </div>
+
+    <!-- Main content -->
+    <div id="mainContent" class="content">
+        <!-- Top div with "Trên" -->
     <div class="top"><h1>YOU WILL LIKE IT</h1><script type="text/javascript">
         atOptions = {
             'key' : '54b68a905c7750b659e2885f404ecc36',
@@ -200,26 +195,12 @@
     </div>
 
     <!-- Fullscreen video that starts playing after countdown -->
- 
+    </div>
 
-    <script>
-      
-     
-
-        function preventBack() {
-            window.history.pushState(null, null, window.location.href);
-        }
-
-        // Listen for "popstate" event for shortcut keys or swipe back
-        window.addEventListener('popstate', function(event) {
-            preventBack(); // Add state back
-            alert('You cannot go back to the previous page :)) ');
-        });
-
-        // If the user tries to exit the page in another way, always keep them on the current page
-        window.onbeforeunload = function() {
-            preventBack(); // Ensure state is always added back when exiting the page
-        };
-    </script>
+    <!-- Restricted content message -->
+    <div id="restrictedContent" class="content" style="display: none;">
+        <h2 class="restricted">Access Restricted</h2>
+        <p>Sorry, this content is not available in your country.</p>
+    </div>
 </body>
 </html>
